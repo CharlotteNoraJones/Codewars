@@ -10,7 +10,7 @@ For example, the string "This website is for losers LOL!" would become "Ths wbst
 Note: for this kata y isn't considered a vowel.
 */
 
-// In retrospect, str.replace would have been much for sensible. 
+// In retrospect, str.replace would have been much more sensible. 
 
 function disemvowel(str) {
     const re = new RegExp('[^aeiou]', "gi");
