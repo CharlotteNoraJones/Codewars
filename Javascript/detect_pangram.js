@@ -18,7 +18,6 @@ function isPangram(string){
 
     ALPHABET.forEach((letter) => {
       if (!(string.toLowerCase().includes(letter))) {
-        console.log(letter);
         is_pangram = false;
       }
     })
