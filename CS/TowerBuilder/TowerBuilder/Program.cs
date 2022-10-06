@@ -7,19 +7,33 @@ class Tower
 {
     static public void Main(String[] args)
     {
-        Console.WriteLine(GetRepeatedChar('*', 4));
+        // Console.WriteLine(GetRepeatedChar('*', 4));
+        string[] tower = TowerBuilder(2);
+
+        foreach(string floor in tower)
+        {
+            Console.WriteLine(floor);
+        }
+        
+
     }
     public static string[] TowerBuilder(int nFloors)
     {
+
         string[] tower = { };
         int towerWidth = 1 + ((nFloors - 1) * 2); 
 
         for (int i = 0; i < nFloors; i++)
         {
-            int blockWidth = 1 + ((i - 1) * 2);
-            int spaceWidth = nFloors - i;
+            int blockWidth = 1 + ((i * 2) -1);
+            int spaceWidth = (nFloors - i) - 1;
 
+            string spaces = GetRepeatedChar(' ', spaceWidth);
+            string blocks = GetRepeatedChar('*', blockWidth);
 
+            string currentFloor = spaces + blocks + spaces;
+
+            tower = pushToStringArray(currentFloor, tower);
         }
 
         return tower;
@@ -35,6 +49,23 @@ class Tower
             new_str += c;
         }
         return new_str;
+    }
+
+    public static string[] pushToStringArray(string str, string[] oldArr)
+    {
+        // Returns a copy of oldArr with str appended to the end. 
+
+        string[] newArr = new string[oldArr.Length + 1];
+
+        for (int i = 0; i < oldArr.Length; i++)
+        {
+            newArr[i] = oldArr[i];
+        }
+
+        newArr[newArr.Length - 1] = str;
+
+        return newArr;
+
     }
 
 }
