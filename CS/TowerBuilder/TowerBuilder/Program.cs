@@ -8,7 +8,7 @@ class Tower
     static public void Main(String[] args)
     {
         // Console.WriteLine(GetRepeatedChar('*', 4));
-        string[] tower = TowerBuilder(2);
+        string[] tower = TowerBuilder(1);
 
         foreach(string floor in tower)
         {
@@ -25,7 +25,8 @@ class Tower
 
         for (int i = 0; i < nFloors; i++)
         {
-            int blockWidth = 1 + ((i * 2) -1);
+            
+            int blockWidth = 1 + ((i * 2));
             int spaceWidth = (nFloors - i) - 1;
 
             string spaces = GetRepeatedChar(' ', spaceWidth);
