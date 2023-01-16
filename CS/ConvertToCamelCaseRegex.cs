@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 Console.WriteLine(ToCamelCase("the-stealth_warrior-sdfgsdfg_aaa-AAA_bbb----"));
 
-public static string ToCamelCase(string str) {
+static string ToCamelCase(string str) {
     foreach (Match match in Regex.Matches(str, @"[-_]\w")) {
         str = str.Replace(match.Value, Char.ToString(Char.ToUpper(match.Value[1])));
     }
