@@ -1,0 +1,35 @@
+/*
+In this kata, your task is to create all permutations of a non-empty 
+input string and remove duplicates, if present. 
+*/
+
+console.log(permutations("abcd"));
+
+function permutations(string, size = string.length, results = []) {
+    // Heaps Algorithim, implementation has glitches and needs work. 
+    if (size == 1) {
+        results.push(string)
+        return results;
+    }
+    else {
+        size--;
+        results = results.concat(permutations(string, size, results));
+        for (let i = 0; i < size; i++) {
+            if (size % 2 == 0) {
+                string = swap(string, i, size);
+            }
+            else {
+                string = swap(string, 0, size);
+            }
+        }
+    }
+    return results;
+}
+
+function swap(string, x, y) {
+    const a = string.split("");
+    temp = a[x];
+    a[x] = a[y];
+    a[y] = temp;
+    return a.join("");
+}
