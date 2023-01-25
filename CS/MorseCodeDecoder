@@ -1,0 +1,19 @@
+// Codewars Challenege. I decoder class was provided. 
+class MorseCodeDecoder
+{
+	public static string Decode(string morseCode)
+	{
+		string result = "";
+    string[] words = morseCode.Split("   ");
+    
+    foreach (string word in words) {
+      string[] splitWord = word.Split(" ");
+      foreach (string s in splitWord) {
+        result += MorseCode.Get(s);
+      }
+      result += ' ';
+    }
+    
+    return result.Trim();
+	}
+}
