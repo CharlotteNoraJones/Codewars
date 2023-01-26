@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+foreach (string s in DirReduction.dirReduc(new string[] {"NORTH", "WEST", "SOUTH", "EAST"})) {
+    Console.WriteLine(s);
+}
+
+public class DirReduction {
+  
+    public static string[] dirReduc(String[] arr) {
+        List<string> directions = arr.ToList();
+        
+        for (int i = 0; 
+        i <= Math.Min(directions.FindAll(s => s.Equals("NORTH")).Count, directions.FindAll(s => s.Equals("SOUTH")).Count) ; 
+        i++) {
+            directions.Remove("NORTH");
+            directions.Remove("SOUTH");
+        }
+
+        for (int i = 0; 
+        i <= Math.Min(directions.FindAll(s => s.Equals("EAST")).Count, directions.FindAll(s => s.Equals("WEST")).Count) ; 
+        i++) {
+            directions.Remove("EAST");
+            directions.Remove("WEST");
+        }
+
+        return directions.ToArray();
+    }
+}
+
